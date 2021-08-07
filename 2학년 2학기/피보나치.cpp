@@ -10,20 +10,18 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	int A, tlqkf, diqkf = 1, toRl = 1;
+	int A, tlqkf = 1, diqkf = 1;//tlqkf : 짝수번째, diqkf : 홀수번째
 	cin >> A;
-	tlqkf = 1;
 	for (int B = 0; B < A; B++) {
-		toRl++;
-		if (toRl / 2 == 0) {
-			diqkf = tlqkf + 1 + tlqkf + 2;
+		if (B % 2 == 0) {
 			cout << diqkf << "\n";
+			diqkf = tlqkf + diqkf;
+			// 현재 수 전 수 전전 수
 		}
-		else if (toRl / 2 == 1) {
-			tlqkf = diqkf;
-			tlqkf = diqkf + 1 + diqkf + 2;
+		else if (B % 2 == 1) {
 			cout << tlqkf << "\n";
-			toRl = 1;
+			tlqkf = diqkf;
+			tlqkf = diqkf + tlqkf;
 		}
 	}
 }
